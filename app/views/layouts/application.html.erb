@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Restaurante2</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+	  <table>
+	    <% %w[home restaurantes pratos].each do |controller_name| %>
+	      <th>
+	        <%= link_to controller_name, controller: controller_name %>
+	      </th>
+	    <% end %>
+	  </table>
+    <%= yield %>
+  </body>
+</html>

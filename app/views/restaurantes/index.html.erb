@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8"/>
+     <title>Restaurantes</title>
+ </head>
+ <body>
+<h1>Restaurantes</h1>
+
+<%= form_tag(Restaurante, :method => "get", id: "search-form") do %>
+    <p><%= text_field_tag :search, params[:search], placeholder: "Filtro" %></p>
+    <p><%= submit_tag "Pesquisar", :name => nil %>
+<% end %>
+
+
+<%= link_to 'Cadastrar Restaurante', action: 'new' %></p>-
+<table>
+  <tr>
+    <th>Apagar</th>
+    <th>Editar</th>
+    <th>Nome</th>
+  </tr>
+
+<% @restaurantes.each do |restaurante| %>
+  <tr>
+    <td>
+      <%= link_to 'Deletar', {action: 'destroy', id: restaurante},
+                             {method: "delete"}  %>
+    </td>
+    <td>
+      <%= link_to 'Editar', action: 'edit', id: restaurante %>
+    </td>
+    <td><%= restaurante.nome %></td>
+  </tr>
+<% end %>
+</table>
+ </body>
+ </html>
+
+

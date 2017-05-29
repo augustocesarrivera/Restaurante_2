@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8"/>
+     <title>Cadastrar Prato</title>
+ </head>
+ <body>
+<h1>Adicionando Prato</h1>
+
+<%= form_for @prato do |f| %>
+  Restaurante: <%= f.collection_select(:restaurante_id, Restaurante.order(:nome),
+                                        :id, :nome, :prompt => true) %><br/>
+  Prato: <%= f.text_field :nome_prato %><br/>
+  Preço(R$): <%= f.text_field :preco %><br/>
+  <table>
+  	<td>
+		<%= link_to 'Cancelar', action: 'index' %>
+  	</td>  
+  	<td>
+  		<%= f.submit %>
+  	</td>	
+  </table>
+<% end %>
+ </body>
+ </html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8"/>
+     <title>Pratos</title>
+ </head>
+ <body>
+<h1>Pratos</h1>
+
+<%= link_to 'Cadastrar Prato', action: 'new' %>
+<table>
+  <tr>
+    <th>Apagar</th>
+    <th>Editar</th>
+    <th>Restaurante</th>
+    <th>Prato</th>
+    <th>Preço</th>
+  </tr>
+<% @prato.each do |pr| %>
+  <tr>
+    <td>
+      <%= link_to 'Deletar', {action: 'destroy', id: pr.id},
+                             {method: "delete"}  %>
+    </td>
+    <td>
+      <%= link_to 'Editar', action: 'edit', id: pr.id %>
+    </td>
+    <td><%= pr.restaurante.nome %></td>
+    <td><%= pr.nome_prato %></td>
+    <td><%= valor_formatado(pr.preco) %></td>
+  </tr>
+<% end %>
+</table>
+ </body>
+ </html>
+
+
